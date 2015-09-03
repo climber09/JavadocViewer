@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>JavadocViewer</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/errorHandler.jsp</location>
+  </error-page>
+  <session-config>
+    <session-timeout>-1</session-timeout>
+  </session-config>
+    <!-- Jetty Server seems to need the old school servlet declarations -->
+  <servlet>
+    <servlet-name>JavadocViewerServlet</servlet-name>
+    <servlet-class>net.sourceforge.hunterj.javadocViewer.JavadocViewerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FolderBrowserServlet</servlet-name>
+    <servlet-class>net.sourceforge.hunterj.fsutil.FolderBrowserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FileServlet</servlet-name>
+    <servlet-class>net.sourceforge.hunterj.fsutil.FileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JavadocViewerServlet</servlet-name>
+    <url-pattern>/view/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FolderBrowserServlet</servlet-name>
+    <url-pattern>/files</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileServlet</servlet-name>
+    <url-pattern>/file</url-pattern>
+  </servlet-mapping>
+</web-app>
