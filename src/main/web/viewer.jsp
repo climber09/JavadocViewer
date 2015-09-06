@@ -87,7 +87,7 @@ var javadoc_home = window.location.pathname + '/javadoc_home';
 //var javadoc_const = "package-frame.html";
 dojoConfig = {parseOnLoad: true}
 </script>
-<script type="text/javascript" src='<%=context%>/util/util.js'></script>
+<!--script type="text/javascript" src='<%=context%>/util/util.js'></script-->
 <script type="text/javascript" src='<%=context%>/dojo/dojo.js'></script>
 <script type="text/javascript" src="<%=context%>/jquery/jquery-1.6.2.min.js"></script>
 <script type="text/javascript">
@@ -286,18 +286,17 @@ var Viewer = (function(){return{
     },
     
     setJavadocHome : function(){
-    	var docHome = //*$('#fld_browser')[0]
+    	var docHome = 
     		   window.frames['fld_browser'].window.frames['viewPane'].pathViewer.selectedPath;
         if(docHome){
-            document.forms['dochome_form'].elements['<%=JVConst.DOCHOME_PARAM.value%>'].value = docHome;
-         //dijit.registry.byId('<%=JVConst.DOCHOME_PARAM.value%>').setValue(docHome);
+            dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>').set('displayedValue', docHome);
         }
     },
     
     currentDochome : '<%=currentDochome%>',
     
     removeDochomeOption : function(optId) {
-        var dochomeObj = dijit.byId('dochome');
+        var dochomeObj = dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>');
         dochomeObj.store.remove(optId);
         if(optId == this.currentDochome) {
         	dochomeObj.set('displayedValue', '');
@@ -357,7 +356,6 @@ dojo.ready(function(){
         data-dojo-props="placeholder:'path/to/javadoc/home',store:dochome_opt,searchAttr:'name'" class="text_box" style="width:35%;min-width:350px"/>
      <button type="submit">&nbsp;Load&nbsp;&raquo;&nbsp;</button>
      <button type="button" onclick="Viewer.openFolderBrowser()">Browse</button>
-     <!--select multiple="multiple" id="<%=JVConst.DOCHOME_OPTS_REMOVE%>" name="<%=JVConst.DOCHOME_OPTS_REMOVE%>" style="display:none"></select-->
    </form>
 </div>
 <div style="display:none" id="ezopen_form">
@@ -372,7 +370,7 @@ dojo.ready(function(){
 <div data-dojo-type="dijit/Dialog" data-dojo-id="error_alert" title="Alert" style="background-color:#fff;font:12px arial">
   <div style="padding:10px" id="error_message"></div>
   <div style="float:right;font-size:11px;margin:5px">
-    <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){error_alert.hide();}" id="cancel">OK</button>
+    <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){error_alert.hide();}"  id="cancel">OK</button>
   </div>
 </div>
 <!-- Folder Browser Box -->
@@ -386,7 +384,6 @@ dojo.ready(function(){
   </div>
 </div>
 </body>
-<!-- #####  dijitReset dijitMenu dijitComboBoxMenu  ##### -->
 <script type="text/javascript">
 dojo.ready(function(){
 	//Add the remove buttons to each option
@@ -401,6 +398,5 @@ dojo.ready(function(){
         }
     });
 });
-//});
 </script>
 </html>
