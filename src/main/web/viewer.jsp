@@ -15,9 +15,6 @@ if(currentDochome == null){
     currentDochome = "";
 }
 String docHomeOpts = (String)request.getAttribute(JVConst.DOCHOME_OPTS.value);
-// if(docHomeOpts == null || docHomeOpts.length() == 0){
-//     docHomeOpts = "[]";
-// }
 Throwable t = (Throwable)request.getAttribute(JVConst.DOCHOME_ERROR.value);
 String errorType = "";
 String errorMsg = "";
@@ -25,7 +22,7 @@ if(t != null) {
     errorType = t.getClass().getName();
     errorMsg = t.getMessage().replace("\\", "\\\\");
 }
-String viewUrl = response.encodeUrl("/view");
+String viewUrl = response.encodeURL("/view");
 %>
 <!DOCTYPE html>
 <html>
@@ -174,7 +171,6 @@ var Viewer = (function(){return{
                 closable : true,
                 'style' : 'margin:0;padding:0;overflow:hidden'
             });
-//            contentPane.set('style', 'margin:0;padding:0;overflow:hidden');
             container.addChild(contentPane);
         }
         catch(e){ //prevents duplicate content panes.
@@ -286,15 +282,9 @@ var Viewer = (function(){return{
         this.javadocHomeObj = dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>');
     },
     
-/*    setJavadocHome : function(){
-//        dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>').set('displayedValue', Viewer.selectedPath);
-        this.javadocHomeObj.set('displayedValue', this.selectedPath);
-    },
-  */  
     currentDochome : '<%=currentDochome%>',
     
     removeDochomeOption : function(optId) {
-//        var dochomeObj = dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>');
         this.javadocHomeObj.store.remove(optId);
         if(optId == this.currentDochome) {
         	this.javadocHomeObj.set('displayedValue', '');
