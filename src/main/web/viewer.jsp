@@ -87,7 +87,7 @@ var javadoc_home = window.location.pathname + '/javadoc_home';
 //var javadoc_const = "package-frame.html";
 dojoConfig = {parseOnLoad: true}
 </script>
-<!--script type="text/javascript" src='<%=context%>/util/util.js'></script-->
+<script type="text/javascript" src='<%=context%>/util/util.js'></script>
 <script type="text/javascript" src='<%=context%>/dojo/dojo.js'></script>
 <script type="text/javascript" src="<%=context%>/jquery/jquery-1.6.2.min.js"></script>
 <script type="text/javascript">
@@ -282,26 +282,24 @@ var Viewer = (function(){return{
         }));
         this.topContainer.addChild(this.classContainer);
         document.body.appendChild(this.topContainer.domNode);
-        this.topContainer.startup();    
+        this.topContainer.startup();
+        this.javadocHomeObj = dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>');
     },
     
-    setJavadocHome : function(){
-    	var docHome = 
-    		   window.frames['fld_browser'].window.frames['viewPane'].pathViewer.selectedPath;
-        if(docHome){
-            dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>').set('displayedValue', docHome);
-        }
+/*    setJavadocHome : function(){
+//        dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>').set('displayedValue', Viewer.selectedPath);
+        this.javadocHomeObj.set('displayedValue', this.selectedPath);
     },
-    
+  */  
     currentDochome : '<%=currentDochome%>',
     
     removeDochomeOption : function(optId) {
-        var dochomeObj = dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>');
-        dochomeObj.store.remove(optId);
+//        var dochomeObj = dijit.byId('<%=JVConst.DOCHOME_PARAM.value%>');
+        this.javadocHomeObj.store.remove(optId);
         if(optId == this.currentDochome) {
-        	dochomeObj.set('displayedValue', '');
+        	this.javadocHomeObj.set('displayedValue', '');
         }else{
-            dochomeObj.set('displayedValue', this.currentDochome);
+            this.javadocHomeObj.set('displayedValue', this.currentDochome);
         }
         $.get("<%=context%>/view?<%=JVConst.DOCHOME_OPTS_REMOVE.value%>=" + encodeURIComponent(optId))        
     }
@@ -347,8 +345,6 @@ dojo.ready(function(){
 <div style="display:none" id="javadoc_home_form">
    <form name="dochome_form" id="dochome_form" style="padding:1px;margin:0" class="javadoc_box" method="GET" action="<%=context%><%=viewUrl%>"> 
      <label for="<%=JVConst.DOCHOME_PARAM.value%>">Javadoc Home:</label>
-     <!--input type="text" name="dochome" id="dochome" value="" class="text_box" /-->
-     
      <div style="display:none" data-dojo-type="dojo/store/Memory" data-dojo-id="dochome_opt" 
        <%if(docHomeOpts != null){%>data-dojo-props='data:<%=docHomeOpts%>'<%}%>></div>
      
@@ -379,7 +375,7 @@ dojo.ready(function(){
     style="border:none;width:100%;height:100%;margin:0;padding:0" marginwidth="0" marginheight="0" frameborder="0"></iframe>
   <div style="float:right">
     <button data-dojo-type="dijit/form/Button" type="button" id="fld_browse_ok" 
-        data-dojo-props="onClick:function(){Viewer.setJavadocHome();fld_browser_box.hide();}">OK</button>
+        data-dojo-props="onClick:function(){Viewer.javadocHomeObj.set('displayedValue', Viewer.selectedPath);fld_browser_box.hide();}">OK</button>
     <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){fld_browser_box.hide();}" id="fld_browse_close">Close</button>
   </div>
 </div>
@@ -388,9 +384,8 @@ dojo.ready(function(){
 dojo.ready(function(){
 	//Add the remove buttons to each option
     dojo.require("dojo.aspect");
-    var dochomeObj = dijit.byId('dochome');
-    dojo.aspect.after(dochomeObj, "openDropDown", function() {
-        var opts = dochomeObj.dropDown.domNode.childNodes;
+    dojo.aspect.after(Viewer.javadocHomeObj, "openDropDown", function() {
+        var opts = Viewer.javadocHomeObj.dropDown.domNode.childNodes;
         for (var i=1; i<opts.length-1; i++) {
             var docUri = opts[i].innerHTML;
             opts[i].innerHTML = '<div style="display:table-cell;text-align:left">' + docUri + 

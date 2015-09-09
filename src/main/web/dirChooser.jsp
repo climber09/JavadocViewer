@@ -25,18 +25,11 @@ html, body {
 }
 </style>
 <script type="text/javascript" src="<%=context%>/jquery/jquery-1.6.2.min.js"></script>
-<script type="text/javascript">
-//?
-function setJavadocHome(path){
-    window.parent.document.forms[0].elements.dochome.value = path;
-    return false;
-}
-</script>
 </head>
 <body class="claro">
 <div id="bread_crumbs" style="font:bold 11px tahoma"></div>
 <iframe id="viewPane" name="viewPane" src="<%=context%>/files?path=root" style="width:99%;height:75%;margin:0;padding:0;border:1px solid #999" marginwidth="0" marginheight="0" frameborder="0"></iframe>
- <script type="text/javascript">
+<script type="text/javascript">
 (function(){
     var separator = '<%=File.separator.replace("\\", "\\\\")%>';
     $('#viewPane').bind('load', function(){

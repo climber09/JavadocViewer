@@ -86,7 +86,11 @@ var pathViewer = (function() {
                         $(this).css('background-color', pathViewer.color.bgSelected);
                     }
                 );
-            pathViewer.selectedPath = path;
+            top.Viewer.selectedPath = path;
+        },
+        openPathEntry: function(path, url){
+        	top.Viewer.selectedPath = path;
+        	window.location.href = url;
         }
     }
 })();
@@ -102,7 +106,7 @@ for(Path path : pathList){
     String escapedEntryPath = entryPath.replace("\\","\\\\");
     String entryUrl = new StringBuilder().append(context).append("/files?path=").append(escapedEntryPath).toString();
 %>
-<li><span class="path_entry" onclick="pathViewer.selectPathEntry(this,'<%=escapedEntryPath%>')" ondblclick="window.location.href='<%=entryUrl%>'"><%=entryName%></span></li>  
+<li><span class="path_entry" onclick="pathViewer.selectPathEntry(this,'<%=escapedEntryPath%>')" ondblclick="pathViewer.openPathEntry('<%=escapedEntryPath%>','<%=entryUrl%>')"><%=entryName%></span></li>
 <%}
 }
 %>
