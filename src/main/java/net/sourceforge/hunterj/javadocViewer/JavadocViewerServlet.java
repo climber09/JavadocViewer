@@ -277,17 +277,19 @@ public class JavadocViewerServlet extends HttpServlet {
      * @throws IOException
      */
     private synchronized String getJavadocHomeOpts(Path path) throws IOException{
-        String savedDochomeOpts = null;
-        if (Files.exists(path)) {
-            try(
-                  BufferedReader reader = new BufferedReader(new FileReader(path.toFile() ));
-                 /*BufferedReader reader = Files.newBufferedReader(path, Charset.defaultCharset())*/
-                ) {
-                savedDochomeOpts = reader.readLine();
-                reader.close();
-            }
-        }
-        return savedDochomeOpts;
+//        String savedDochomeOpts = null;
+//        if (Files.exists(path)) {
+//            try(
+//                  BufferedReader reader = new BufferedReader(new FileReader(path.toFile() ));
+//                 /*BufferedReader reader = Files.newBufferedReader(path, Charset.defaultCharset())*/
+//                ) {
+//                savedDochomeOpts = reader.readLine();
+//                reader.close();
+//            }
+//        }
+//        return savedDochomeOpts;
+//      This hack is just for the online demo
+        return "[{\"name\":\"http://junit.org/junit4/javadoc/latest/\",\"id\":\"http://junit.org/junit4/javadoc/latest/\"},{\"name\":\"https://docs.oracle.com/javaee/6/api/\",\"id\":\"https://docs.oracle.com/javaee/6/api/\"},{\"name\":\"https://docs.oracle.com/javase/7/docs/api/\",\"id\":\"https://docs.oracle.com/javase/7/docs/api/\"},{\"name\":\"https://docs.oracle.com/javaee/7/api/\",\"id\":\"https://docs.oracle.com/javaee/7/api/\"},{\"name\":\"https://docs.oracle.com/javase/8/docs/api/\",\"id\":\"https://docs.oracle.com/javase/8/docs/api/\"}]";
     }
     
     /**
