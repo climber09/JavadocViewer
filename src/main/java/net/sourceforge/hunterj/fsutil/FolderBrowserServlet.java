@@ -36,8 +36,9 @@ public class FolderBrowserServlet extends HttpServlet {
     
     public enum FBConst {
         
-        VIEW_DIR_CHOOSER("/dirChooser.jsp"),
-        VIEW_DIR_CONTENTS("/dirContents.jsp"),
+      VIEW_DIR_CHOOSER("/dirChooser.jsp"),
+//        VIEW_DIR_CONTENTS("/dirContents.jsp"),
+        VIEW_DIR_CONTENTS("/dirContents-disabled.html"),
         DIR_CONTENTS("directory.contents");
         
         public final String value;

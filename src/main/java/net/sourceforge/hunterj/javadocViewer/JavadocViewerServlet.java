@@ -40,7 +40,7 @@ import org.json.JSONObject;
 /**
  * Servlet implementation class JavadocViewerServlet
  */
-@WebServlet(name="JavadocServlet", urlPatterns={"/view/*"})
+@WebServlet(name="JavadocViewerServlet", urlPatterns={"/view/*"})
 //@WLServlet (name="JavadocServlet", mapping={"/view/*"})
 public class JavadocViewerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -307,12 +307,13 @@ public class JavadocViewerServlet extends HttpServlet {
      * @param options
      * @throws IOException
      */
-    private synchronized void writeJavadocHomeOpts(String options) throws IOException {        
-        try (BufferedWriter writer = Files.newBufferedWriter(
-                Paths.get(this.saveFilePathStr), Charset.defaultCharset())) {
-            writer.write(options);
-            writer.close();
-        }
+    private synchronized void writeJavadocHomeOpts(String options) throws IOException {
+//  Disabled for online demo        
+//        try (BufferedWriter writer = Files.newBufferedWriter(
+//                Paths.get(this.saveFilePathStr), Charset.defaultCharset())) {
+//            writer.write(options);
+//            writer.close();
+//        }
     }
     
     /**
