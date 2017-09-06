@@ -26,7 +26,7 @@ build.properties and run the Ant deploy task, which will build
 JavadocViewer.war and copy it to the deployment directory specified  
 in build.properties.
 
-> `$ ant` deploy  
+> `$ ant deploy`  
   
 #####Usage:
 When you first open the JavadocViewer application in a web browser you  
