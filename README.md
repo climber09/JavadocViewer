@@ -11,6 +11,8 @@ productively.
 * Quick location of package and class pages without the usual search and scroll.
 * Runs as a standard JEE Web application on any JEE Web server
 
+Check out the [live demo](http://demo-javadoc-viewer.a3c1.starter-us-west-1.openshiftapps.com/JavadocViewer).
+
 #####Build:
 Simply run the Ant build script to build JavadocViewer.war, wherever  
 you unzip and store the distribution files. Then deploy the war to your  
@@ -24,7 +26,7 @@ build.properties and run the Ant deploy task, which will build
 JavadocViewer.war and copy it to the deployment directory specified  
 in build.properties.
 
-> `$ ant` deploy  
+> `$ ant deploy`  
   
 #####Usage:
 When you first open the JavadocViewer application in a web browser you  
