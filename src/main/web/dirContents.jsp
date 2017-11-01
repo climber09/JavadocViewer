@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="net.sourceforge.hunterj.fsutil.FolderBrowserServlet.FBConst, java.util.List,java.nio.file.Path" %>
+<%@ page import="com.hunterjdev.fsutil.FolderBrowserServlet.FBConst, java.util.List,java.nio.file.Path" %>
 <%
 /*
  * This work is licensed under the Common Public Attribution License 

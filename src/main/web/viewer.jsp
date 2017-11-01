@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="net.sourceforge.hunterj.javadocViewer.JavadocViewerServlet.JVConst" %>
+<%@ page import="com.hunterjdev.javadocViewer.JavadocViewerServlet.JVConst" %>
 <%
 /*
  * This work is licensed under the Common Public Attribution License 
@@ -84,7 +84,7 @@ var javadoc_home = window.location.pathname + '/javadoc_home';
 //var javadoc_const = "package-frame.html";
 dojoConfig = {parseOnLoad: true}
 </script>
-<script type="text/javascript" src='<%=context%>/util/util.js'></script>
+<!--script type="text/javascript" src='<%=context%>/util/util.js'></script-->
 <script type="text/javascript" src='<%=context%>/dojo/dojo.js'></script>
 <script type="text/javascript" src="<%=context%>/jquery/jquery-1.6.2.min.js"></script>
 <script type="text/javascript">

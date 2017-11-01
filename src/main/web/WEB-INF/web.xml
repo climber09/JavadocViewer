@@ -14,15 +14,15 @@
     <!-- Jetty Server seems to need the old school servlet declarations -->
   <servlet>
     <servlet-name>JavadocViewerServlet</servlet-name>
-    <servlet-class>net.sourceforge.hunterj.javadocViewer.JavadocViewerServlet</servlet-class>
+    <servlet-class>com.hunterjdev.javadocViewer.JavadocViewerServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>FolderBrowserServlet</servlet-name>
-    <servlet-class>net.sourceforge.hunterj.fsutil.FolderBrowserServlet</servlet-class>
+    <servlet-class>com.hunterjdev.fsutil.FolderBrowserServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>FileServlet</servlet-name>
-    <servlet-class>net.sourceforge.hunterj.fsutil.FileServlet</servlet-class>
+    <servlet-class>com.hunterjdev.fsutil.FileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>JavadocViewerServlet</servlet-name>

@@ -1,4 +1,4 @@
-package net.sourceforge.hunterj.fsutil;
+package com.hunterjdev.fsutil;
 
 /*
  * This work is licensed under the Common Public Attribution License 
@@ -27,6 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Used to support the functionality of a typical "Browse for Folder" widget.
+ * 
+ * @author James Hunter
  * 
  */
 @WebServlet(name="FolderBrowserServlet", urlPatterns={"/files"})

@@ -1,4 +1,4 @@
-package net.sourceforge.hunterj.javadocViewer;
+package com.hunterjdev.javadocViewer;
 
 /*
  * This work is licensed under the Common Public Attribution License 
@@ -28,19 +28,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sourceforge.hunterj.fsutil.FileServlet;
-
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.hunterjdev.fsutil.FileServlet;
+
 //import weblogic.servlet.annotation.WLServlet;
 
 /**
  * Servlet implementation class JavadocViewerServlet
+ * 
+ * @author James Hunter
  */
-@WebServlet(name="JavadocServlet", urlPatterns={"/view/*"})
+@WebServlet(name="JavadocViewerServlet", urlPatterns={"/view/*"})
 //@WLServlet (name="JavadocServlet", mapping={"/view/*"})
 public class JavadocViewerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -49,7 +51,7 @@ public class JavadocViewerServlet extends HttpServlet {
     
     /**
      * String constants used throughout the application.
-     * @author jim
+     * 
      */
     public enum JVConst{
         DOCHOME_PARAM("dochome"), 

@@ -1,4 +1,4 @@
-package net.sourceforge.hunterj.fsutil;
+package com.hunterjdev.fsutil;
 
 /*
  * This work is licensed under the Common Public Attribution License 
@@ -27,6 +27,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Used as a file server for local files that are outside of the application context.
+ * 
+ * @author James Hunter
  * 
  */
 @WebServlet(name="FileServlet", urlPatterns={"/file"})
