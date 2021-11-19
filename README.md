@@ -18,7 +18,7 @@ Simply run the Ant build script to build JavadocViewer.war, wherever
 you unzip and store the distribution files. Then deploy the war to your
 JEE Web server.
 
-> `$ cd /../<YOUR-JAVADOCVIEWER-HOME>/`
+> `$ cd /../<YOUR-JAVADOCVIEWER-HOME>/`  
 > `$ ant`
 
 Optionally, you can specify a `server.deploy.dir` value in
